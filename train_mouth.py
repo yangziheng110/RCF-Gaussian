@@ -166,8 +166,7 @@ def training(dataset, opt, pipe, testing_iterations, saving_iterations, checkpoi
         if iteration > warm_step:
             # loss += 1e-5 * (render_pkg['motion']['d_xyz'].abs()).mean()
             loss += 1e-3 * (((1-alpha) * lips_mask).mean() + (alpha * ~lips_mask).mean())
-            jaw_exp = viewpoint_cam.talking_dict['3dmm_jaw'].cuda()
-            loss += 1e-3 * l1_loss(render_pkg['motion']['jaw_exp'], jaw_exp) # 直接预测jaw系数进行比较来学习, 暂时不知道用处是否大
+           
 
         image_t = image_green.clone()
         gt_image_t = gt_image_green.clone()
