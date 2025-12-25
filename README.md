@@ -3,7 +3,7 @@
 Tested on Ubuntu 18.04, CUDA 11.3, PyTorch 1.12.1
 
 conda env create --file environment.yml
-conda activate talking_gaussian
+conda activate RCF-GS
 pip install "git+https://github.com/facebookresearch/pytorch3d.git"
 pip install tensorflow-gpu==2.8.0
 ```
