@@ -147,14 +147,13 @@ def render_motion(viewpoint_camera, pc : GaussianModel, motion_net : MotionNetwo
     exp_feat = viewpoint_camera.talking_dict["au_exp"].cuda()
     #exp_feat = viewpoint_camera.talking_dict["3dmm_exp"].cuda()
     ##################
-    shape = viewpoint_camera.talking_dict['3dmm_shape'].cuda()
-    jaw  = viewpoint_camera.talking_dict['3dmm_jaw'].cuda()
+   
     #################
-    landmarks = torch.from_numpy(viewpoint_camera.talking_dict["landmarks"]).float().cuda()
+  
     # ind_code = motion_net.individual_codes[frame_idx if frame_idx is not None else viewpoint_camera.talking_dict["img_id"]]
     ind_code = None
-    #motion_preds = motion_net(torch.cat((pc.get_xyz,pc.get_embedding), dim=-1), audio_feat, exp_feat, landmarks, shape,jaw ,ind_code) # 加入 embedding来一起操作
-    motion_preds = motion_net(pc.get_xyz, audio_feat, exp_feat, landmarks, shape,jaw ,ind_code)
+    #motion_preds = motion_net(torch.cat((pc.get_xyz,pc.get_embedding), dim=-1), audio_feat, exp_feat,ind_code) # 加入 embedding来一起操作
+    motion_preds = motion_net(pc.get_xyz, audio_feat, exp_feat ,ind_code)
     #motion_preds = motion_net(pc.get_xyz, audio_feat, exp_feat, ind_code) #  
     
     means3D = pc.get_xyz + motion_preds['d_xyz']
