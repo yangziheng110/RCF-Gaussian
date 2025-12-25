@@ -1,4 +1,4 @@
-name: talking_gaussian
+name: RCF-GS
 channels:
   - pytorch
   - conda-forge
