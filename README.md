@@ -1,7 +1,7 @@
 ## Installation
 
 Tested on Ubuntu 18.04, CUDA 11.3, PyTorch 1.12.1
-
+```bash
 conda env create --file environment.yml
 conda activate RCF-GS
 pip install "git+https://github.com/facebookresearch/pytorch3d.git"
@@ -31,7 +31,7 @@ If encounter installation problem from the `diff-gaussian-rasterization` or `gri
 
   ```bash
   # prepare mmcv
-  conda activate talking_gaussian
+  conda activate RCF-GS
   pip install -U openmim
   mim install mmcv-full==1.7.1
 
