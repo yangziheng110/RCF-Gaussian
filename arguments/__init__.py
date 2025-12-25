@@ -57,7 +57,6 @@ class ModelParams(ParamGroup):
         self.audio = ""
         self.init_num = 10_000
         self.audio_extractor = "hubert"
-        #self.exp_method = '3dmm' # au
         self.exp_method = 'au'
         super().__init__(parser, "Loading Parameters", sentinel)
 
